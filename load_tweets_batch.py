@@ -293,9 +293,10 @@ def _insert_tweets(connection,input_tweets):
 
         for url in urls:
             tweet_urls.append({
-                'id_tweets':tweet['id'],
-                'id_urls':id_urls,
-                })
+                'id_tweets': tweet['id'],
+                'url': url['expanded_url']
+            })
+
 
         ########################################
         # insert into the tweet_mentions table
@@ -352,7 +353,7 @@ def _insert_tweets(connection,input_tweets):
         for medium in media:
             tweet_media.append({
                 'id_tweets':tweet['id'],
-                'id_urls':id_urls,
+                'url': medium['media_url'],
                 'type':medium['type']
                 })
 
